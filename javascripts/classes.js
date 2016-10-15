@@ -123,5 +123,36 @@ OldGauntlet.GuildHall.Sorcerer.prototype = new OldGauntlet.GuildHall.Mage();
       - Ninja
       - Assassin
  */
+
+ OldGauntlet.GuildHall.Stealthy = function() {
+  this.name = "Stealthy";
+  this.stealth = true;
+  this.healthBonus = this.healthBonus - 10;
+  this.strengthBonus = this.strengthBonus - 20;
+  this.intelligenceBonus = this.intelligenceBonus + 20;
+};
+OldGauntlet.GuildHall.Stealthy.prototype = new OldGauntlet.GuildHall.PlayerClass();
+
+OldGauntlet.GuildHall.Thief = function() {
+  this.name = "Thief";
+  this.strengthBonus = this.strengthBonus - 10;
+  this.intelligenceBonus = this.intelligenceBonus + 10;
+};
+OldGauntlet.GuildHall.Thief.prototype = new OldGauntlet.GuildHall.Stealthy();
+
+OldGauntlet.GuildHall.Ninja = function() {
+  this.name = "Ninja";
+  this.strengthBonus = this.strengthBonus - 10;
+  this.intelligenceBonus = this.intelligenceBonus + 10;
+};
+OldGauntlet.GuildHall.Ninja.prototype = new OldGauntlet.GuildHall.Stealthy();
+
+OldGauntlet.GuildHall.Assassin = function() {
+  this.name = "Assassin";
+  this.strengthBonus = this.strengthBonus - 10;
+  this.intelligenceBonus = this.intelligenceBonus + 10;
+};
+OldGauntlet.GuildHall.Conjurer.prototype = new OldGauntlet.GuildHall.Stealthy();
+
  return OldGauntlet;
  })(Gauntlet || {});

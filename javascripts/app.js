@@ -43,10 +43,10 @@ $(document).ready(function() {
         console.log("hi I'm card Class");
         var player = $("#player-name").val();
         warrior = new Gauntlet.Combatants.Human();
-        warrior.name = player;
+        warrior.playerName = player;
         break;
       case "card--weapon":
-        moveAlong = ($("#player-name").val() !== "");
+        moveAlong = (warrior.class !== null);
         console.log(warrior.class.magical);
         if (warrior.class.magical){
         	$("#userSpell").show();
@@ -61,12 +61,12 @@ $(document).ready(function() {
     
         break;
        case "card--battleground":
-       	moveAlong = ($("#player-name").val() !== "");
-       	console.log(warrior.toString());
+       	moveAlong = (warrior.weapon !== null);
        	var orc = new Gauntlet.Combatants.Orc();
 		orc.generateClass();
 		orc.generateWeapon();
-		console.log(orc.toString());
+		orc.generateNames();
+		Gauntlet.startAttack(warrior, orc);
        	break;
        default :
        console.log("everything is broken fml");
@@ -111,9 +111,11 @@ $(document).ready(function() {
   			console.log("Weapon Page Warrior", warrior);
   	}
   });
+
   $("#userBattleground").click(function(e){
   	console.log("attack");
-  })
+  });
+
   /*
     When the back button clicked, move back a view
    */

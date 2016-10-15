@@ -8,7 +8,12 @@ var Gauntlet = (function(OldGauntlet){
     this.hands = 2;
 
     this.toString = function() {
-      return this.name;
+      var weaponOutput = [
+      this.name,
+      " with a damage of ",
+      this.damage].join("");
+      // return this.name;
+      return weaponOutput;
     }
   };
 

@@ -52,7 +52,7 @@ var Gauntlet = (function(OldGauntlet) {
       var randomClass = this.allowedClasses[random];
 
       // Composes the corresponding player class into the player object
-      this.class = new GuildHall[randomClass]();
+      this.class = new OldGauntlet.GuildHall[randomClass]();
 
       // Add the health bonus
       this.health += this.class.healthBonus;

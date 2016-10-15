@@ -5,6 +5,7 @@ var Gauntlet = (function(OldGauntlet){
 OldGauntlet.Combatants.Orc = function() {
   this.health = this.health + 20;
   this.species = "Orc";
+  this.allowedNames = ["Zoe Ames", "Nathan Gonzalez", "William Hickok"]
   this.allowedClasses = ["Warrior", "Berserker", "Shaman"];
   this.allowedWeapons = ["Dagger", "BroadSword", "WarAxe"];
   this.generateClass = function() {
@@ -27,6 +28,16 @@ OldGauntlet.Combatants.Orc = function() {
       // Composes the corresponding player class into the player object
       this.weapon = new OldGauntlet.Weapons[randomClass]();
       return this.weapon;
+  };
+  this.generateNames = function(){
+    var random = Math.round(Math.random() * (this.allowedClasses.length - 1));
+
+      // Get the string at the index
+      var randomClass = this.allowedNames[random];
+
+      // Composes the corresponding player class into the player object
+      this.playerName = randomClass;
+      return this.playerName;
   }
 };
 

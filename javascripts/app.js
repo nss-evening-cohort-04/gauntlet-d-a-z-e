@@ -43,7 +43,7 @@ $(document).ready(function() {
         console.log("hi I'm card Class");
         var player = $("#player-name").val();
         warrior = new Gauntlet.Combatants.Human();
-        warrior.name = player;
+        warrior.playerName = player;
         break;
       case "card--weapon":
         moveAlong = ($("#player-name").val() !== "");
@@ -65,6 +65,7 @@ $(document).ready(function() {
        	var orc = new Gauntlet.Combatants.Orc();
 		orc.generateClass();
 		orc.generateWeapon();
+		orc.generateNames();
 		Gauntlet.startAttack(warrior, orc);
        	break;
        default :

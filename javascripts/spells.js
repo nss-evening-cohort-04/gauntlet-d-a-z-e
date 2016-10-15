@@ -31,5 +31,24 @@ var Gauntlet = (function(OldGauntlet){
     this.type = this.damageTypes[random];
   };
   OldGauntlet.SpellBook.Sphere.prototype = new OldGauntlet.SpellBook.Spell();
+
+  OldGauntlet.SpellBook.Blast = function() {
+    this.name = "blast";
+    this.damage = Math.floor(Math.random() * 10 + 10);
+
+    var random = Math.round(Math.random() * (this.damageTypes.length - 1));
+    this.type = this.damageTypes[random];
+  };
+  OldGauntlet.SpellBook.Blast.prototype = new OldGauntlet.SpellBook.Spell();
+
+  OldGauntlet.SpellBook.Shock = function() {
+    this.name = "shock";
+    this.damage = Math.floor(Math.random() * 10 + 10);
+
+    var random = Math.round(Math.random() * (this.damageTypes.length - 1));
+    this.type = this.damageTypes[random];
+  };
+  OldGauntlet.SpellBook.Shock.prototype = new OldGauntlet.SpellBook.Spell();
+
   return OldGauntlet;
 })(Gauntlet || {})

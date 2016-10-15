@@ -21,14 +21,14 @@ console.log(Gauntlet);
 var spell = new Gauntlet.SpellBook.Sphere();
 console.log("spell: ", spell.toString());
 
-var warrior;
+
 $(document).ready(function() {
   /*
     Show the initial view that accepts player name
 //    */
 	
   $("#player-setup").show();
-  
+  var warrior;
   /*
     When any button with card__link class is clicked,
     move on to the next view.
@@ -48,8 +48,6 @@ $(document).ready(function() {
       case "card--weapon":
         moveAlong = ($("#player-name").val() !== "");
         console.log(warrior.class.magical);
-        // $("#userWeapon").hide();
-        // $("#userSpell").hide();
         if (warrior.class.magical){
         	$("#userSpell").show();
         	$("#userWeapon").hide();
@@ -60,7 +58,7 @@ $(document).ready(function() {
         	$("#userWeapon").show();
         	console.log("bye");
         }
-        
+    
         break;
        case "card--battleground":
        	moveAlong = ($("#player-name").val() !== "");
@@ -81,14 +79,17 @@ $(document).ready(function() {
   		var test = $(e.target).is(".btn__text");
   		if (test){
   			let clicked = $(e.target).find(".btn__text").context.innerHTML;
+  			if (clicked === "surprise me"){
+  				warrior.generateClass(); 
+  			} else {
   				warrior.class = new Gauntlet.GuildHall[clicked]();
+  			}
+  			
   			console.log("Class Page Warrior", warrior);
   		} 
-  		console.log(test);
-  		// 	console.log(test.context.innerHTML);
-  		// let clicked = test.context.innerHTML;
   		
   	});
+
   $("#userWeapon").click(function(e){
   	var test = $(e.target).is(".btn__text");
   	if (test){

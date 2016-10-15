@@ -44,33 +44,33 @@
         </div>
       </div>
 
-      <div class="container-fluid">
+      <div class="container-fluid" id="userClass">
         <div class="row">
           <div class="col-sm-4">
             <div class="card__button">
               <a class="class__link btn btn--big btn--blue" href="#">
-                <span class="btn__prompt">></span>
-                <span class="btn__text">Warrior</span>
+                
+                <span class="btn__text" id="Warrior">Warrior</span>
               </a>
             </div>
 
             <div class="card__button">
               <a class="class__link btn btn--big btn--blue" href="#">
-                <span class="btn__prompt">></span>
-                <span class="btn__text">Valkyrie</span>
+                
+                <span class="btn__text" id="Valkyrie">Valkyrie</span>
               </a>
             </div>
 
             <div class="card__button">
               <a class="class__link btn btn--big btn--blue" href="#">
-                <span class="btn__prompt">></span>
+                
                 <span class="btn__text">berserker</span>
               </a>
             </div>
 
             <div class="card__button">
               <a class="class__link btn btn--big btn--blue" href="#">
-                <span class="btn__prompt">></span>
+                
                 <span class="btn__text">Monk</span>
               </a>
             </div>
@@ -79,21 +79,21 @@
           <div class="col-sm-4">
             <div class="card__button">
               <a class="class__link btn btn--big btn--blue" href="#">
-                <span class="btn__prompt">></span>
+                
                 <span class="btn__text">Wizard</span>
               </a>
             </div>
 
             <div class="card__button">
               <a class="class__link btn btn--big btn--blue" href="#">
-                <span class="btn__prompt">></span>
+                
                 <span class="btn__text">Sorcerer</span>
               </a>
             </div>
 
             <div class="card__button">
               <a class="class__link btn btn--big btn--blue" href="#">
-                <span class="btn__prompt">></span>
+                
                 <span class="btn__text">Conjurer</span>
               </a>
             </div>
@@ -101,21 +101,21 @@
           <div class="col-sm-4">
             <div class="card__button">
               <a class="class__link btn btn--big btn--blue" href="#">
-                <span class="btn__prompt">></span>
+                
                 <span class="btn__text">Thief</span>
               </a>
             </div>
 
             <div class="card__button">
               <a class="class__link btn btn--big btn--blue" href="#">
-                <span class="btn__prompt">></span>
+                
                 <span class="btn__text">Ninja</span>
               </a>
             </div>
 
             <div class="card__button">
               <a class="class__link btn btn--big btn--blue" href="#">
-                <span class="btn__prompt">></span>
+                
                 <span class="btn__text">Assassin</span>
               </a>
             </div>
@@ -139,7 +139,7 @@
         </a>
       </div>
     </section>
-
+<!-- Weapon View -->
     <section id="weapon-select" class="card card--weapon">
       <div class="card__prompt">
         <div>choose your weapon</div>
@@ -153,6 +153,30 @@
         </div>
       </div>
 
+      <div class="container-fluid" id="userWeapon">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="card__button">
+              <a class="class__link btn btn--big btn--blue" href="#">
+                
+                <span class="btn__text">Dagger</span>
+              </a>
+            </div>
+           </div>
+          </div>
+          </div>
+      <div class="container-fluid" id="userSpell">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="card__button">
+              <a class="class__link btn btn--big btn--blue" href="#">
+                
+                <span class="btn__text">Sphere</span>
+              </a>
+            </div>
+           </div>
+          </div>
+          </div>
       <div class="card__button">
         <a class="card__link btn btn--big btn--orange"
            href="#"
@@ -162,8 +186,35 @@
         </a>
       </div>
     </section>
+<!-- Battleground View -->
+    <section id="battleground" class="card card--battleground">
+      <div class="card__prompt">
+        <div>Attack</div>
+        <div>
+          <a class="card__back btn btn--small"
+             href="#"
+             previous="card--weapon">
+            <span class="btn__prompt">&lt;</span>
+            <span class="btn__text">Back</span>
+          </a>
+        </div>
+      </div>
 
-    <section id="battleground" class="card card--battleground"></section>
+      <div class="container-fluid" id="userBattleground">
+          <div id="output">
+          </div>
+          
+      </div>
+
+      <div class="card__button">
+        <a class="card__link btn btn--big btn--orange"
+           href="#"
+           next="card--battleground">
+          <span class="btn__prompt">></span>
+          <span class="btn__text">Attack Your Enemy</span>
+        </a>
+      </div>
+    </section>
 
   </article>
 

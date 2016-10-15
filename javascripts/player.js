@@ -1,6 +1,7 @@
 /*
   TODO: Modularize this code with IIFE or Browserify
  */
+
 var Gauntlet = (function(OldGauntlet) {
   OldGauntlet.Combatants = {};
     /*
@@ -51,7 +52,7 @@ var Gauntlet = (function(OldGauntlet) {
       var randomClass = this.allowedClasses[random];
 
       // Composes the corresponding player class into the player object
-      this.class = new GuildHall[randomClass]();
+      this.class = new OldGauntlet.GuildHall[randomClass]();
 
       // Add the health bonus
       this.health += this.class.healthBonus;
@@ -85,8 +86,11 @@ var Gauntlet = (function(OldGauntlet) {
       this.health = this.health - 30;
       this.intelligence = this.intelligence -20;
       this.strength = this.strength + 30;
+      
     };
 
     OldGauntlet.Combatants.Monster.prototype = new OldGauntlet.Combatants.Player();
+
     return OldGauntlet;
 })(Gauntlet || {});
+

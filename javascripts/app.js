@@ -62,11 +62,10 @@ $(document).ready(function() {
         break;
        case "card--battleground":
        	moveAlong = ($("#player-name").val() !== "");
-       	console.log(warrior.toString());
        	var orc = new Gauntlet.Combatants.Orc();
 		orc.generateClass();
 		orc.generateWeapon();
-		console.log(orc.toString());
+		Gauntlet.startAttack(warrior, orc);
        	break;
        default :
        console.log("everything is broken fml");
@@ -111,6 +110,7 @@ $(document).ready(function() {
   			console.log("Weapon Page Warrior", warrior);
   	}
   });
+
   $("#userBattleground").click(function(e){
   	console.log("attack");
   })

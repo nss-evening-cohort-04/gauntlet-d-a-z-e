@@ -43,15 +43,33 @@ $(document).ready(function() {
         var player = $("#player-name").val();
         warrior = new Gauntlet.Combatants.Human();
         warrior.name = player;
-
-
+    //     $(".class__link").click(function(e){
+  		// 	let clicked = e.currentTarget;
+  		// 	// clicked.setAttribute("selected", "true");
+  		// 	let classClicked = clicked.childNodes[3].innerHTML;
+  		// 	warrior.class = new Gauntlet.GuildHall[classClicked]();
+  		// 	console.log("Class Page Warrior", warrior);
+  		// });
         break;
       case "card--weapon":
         moveAlong = ($("#player-name").val() !== "");
         console.log("hi I'm card Weapon");
-  
+  		// $(".class__link").click(function(e){
+  		// 	let clicked = e.currentTarget;
+  		// 	// // clicked.setAttribute("selected", "true");
+  		// 	let weaponClicked = clicked.childNodes[3].innerHTML;
+  		// 	warrior.weapon = new Gauntlet.Weapons[weaponClicked]();
+  		// 	console.log("Weapon Page Warrior", warrior);
+  		// });
         
         break;
+       case "card--battleground":
+       	moveAlong = ($("#player-name").val() !== "");
+       	console.log(warrior.toString());
+
+       	break;
+       default :
+       console.log("everything is broken fml");
     }
 
     if (moveAlong) {
@@ -60,24 +78,37 @@ $(document).ready(function() {
     }
   });
   
-  $(".class__link").click(function(e){
-  		if($(".card__link").next = "card--class"){
-  			let clicked = e.currentTarget;
-  			// clicked.setAttribute("selected", "true");
-  			let classClicked = clicked.childNodes[3].innerHTML;
-  			warrior.class = new Gauntlet.GuildHall[classClicked]();
+  $("#userClass").click(function(e){
+  		var test = $(e.target).find(".btn__text");
+  		if (test.context.children[0]){
+  			console.log(test.context.innerHTML);
   		}
-        if($(".card__link").next = "card--weapon"){
-        	console.log("hi");
-        	let clicked = e.currentTarget;
-  			// // clicked.setAttribute("selected", "true");
-  			let weaponClicked = clicked.childNodes[3].innerHTML;
-  			warrior.weapon = new Gauntlet.Weapons[weaponClicked]();
-  			console.log(warrior);
+  		
+  		// console.log(test.context.innerHTML);
+  		// let clicked = test.context.innerHTML;
+  		// 	// clicked.setAttribute("selected", "true");
+  		// 	// let classClicked = clicked.childNodes[3].innerHTML;
+  		// 	warrior.class = new Gauntlet.GuildHall[clicked]();
+  		// 	console.log("Class Page Warrior", warrior);
+  		// } else if($(".card__link").next === "card--weapon"){
+    //     	console.log("hi");
+    //     	let clicked = e.currentTarget;
+  		// 	// // clicked.setAttribute("selected", "true");
+  		// 	let weaponClicked = clicked.childNodes[3].innerHTML;
+  		// 	warrior.weapon = new Gauntlet.Weapons[weaponClicked]();
+  		// 	console.log("Weapon Page Warrior", warrior);
 
-        }
+    //     }
   	});
-
+  $("#userWeapon").click(function(e){
+  	var test = $(e.target).find(".btn--big");
+  		console.log(test.context.innerHTML);
+  		  	let clicked = test.context.innerHTML;
+  		// 	// // clicked.setAttribute("selected", "true");
+  		// 	let weaponClicked = clicked.childNodes[3].innerHTML;
+  			warrior.weapon = new Gauntlet.Weapons[clicked]();
+  			console.log("Weapon Page Warrior", warrior);
+  });
   /*
     When the back button clicked, move back a view
    */

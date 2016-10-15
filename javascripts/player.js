@@ -86,9 +86,11 @@ var Gauntlet = (function(OldGauntlet) {
       this.health = this.health - 30;
       this.intelligence = this.intelligence -20;
       this.strength = this.strength + 30;
+      
     };
 
     OldGauntlet.Combatants.Monster.prototype = new OldGauntlet.Combatants.Player();
+
     return OldGauntlet;
 })(Gauntlet || {});
 

@@ -16,7 +16,7 @@ var Gauntlet = (function(OldGauntlet){
       return weaponOutput;
     }
   };
-
+  
   OldGauntlet.Weapons.Dagger = function() {
     this.name = "dagger";
     this.damage = 4;

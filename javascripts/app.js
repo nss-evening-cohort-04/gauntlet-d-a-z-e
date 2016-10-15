@@ -63,7 +63,10 @@ $(document).ready(function() {
        case "card--battleground":
        	moveAlong = ($("#player-name").val() !== "");
        	console.log(warrior.toString());
-
+       	var orc = new Gauntlet.Combatants.Orc();
+		orc.generateClass();
+		orc.generateWeapon();
+		console.log(orc.toString());
        	break;
        default :
        console.log("everything is broken fml");

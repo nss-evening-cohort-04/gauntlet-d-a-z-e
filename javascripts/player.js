@@ -43,6 +43,13 @@ Gauntlet.Combatants.Player = function(name) {
 Gauntlet.Combatants.Player.prototype.setWeapon = function(newWeapon) {
   this.weapon = newWeapon;
 }
+// Gauntlet.Combatants.Player.prototype.setClass = function(newClass) {
+//   // console.log(newClass);
+//   // var newIsh = newClass;
+//   // this.class = new Gauntlet.GuildHall[newIsh]();
+//   this.class = this.newClass;
+//   return this.class;
+// }
 
 Gauntlet.Combatants.Player.prototype.generateClass = function() {
   // Get a random index from the allowed classes array

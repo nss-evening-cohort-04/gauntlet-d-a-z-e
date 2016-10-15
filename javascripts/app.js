@@ -3,13 +3,17 @@
  */
 var warrior = new Gauntlet.Combatants.Human();
 warrior.setWeapon(new WarAxe());
-warrior.generateClass();  // This will be used for "Surprise me" option
+warrior.class = new Gauntlet.GuildHall.Warrior();
+// warrior.weapon = new Gauntlet.SpellBook.Sphere();
+// warrior.generateClass();  // This will be used for "Surprise me" option
 console.log(warrior.toString());
+console.log("warrior",warrior);
 
 var orc = new Gauntlet.Combatants.Orc();
 orc.generateClass();
 orc.setWeapon(new BroadSword());
 console.log(orc.toString());
+console.log("orc", orc);
 
 /*
   Test code to generate a spell

@@ -4,6 +4,9 @@ var Gauntlet = (function(OldGauntlet) {
 		$("#output").append(warriorObj.toString());
 		$("#output").append(orcObj.toString());
 	};
+	OldGauntlet.runAttack = function(warriorObj, orcObj){
+		console.log(warriorObj.health);
+	};
 	return OldGauntlet;
 })(Gauntlet || {});
 

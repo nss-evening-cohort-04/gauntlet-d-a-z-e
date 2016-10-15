@@ -29,6 +29,10 @@ $(document).ready(function() {
 	
   $("#player-setup").show();
   var warrior;
+  var orc = new Gauntlet.Combatants.Orc();
+	orc.generateClass();
+	orc.generateWeapon();
+	orc.generateNames();
   /*
     When any button with card__link class is clicked,
     move on to the next view.
@@ -62,11 +66,8 @@ $(document).ready(function() {
         break;
        case "card--battleground":
        	moveAlong = (warrior.weapon !== null);
-       	var orc = new Gauntlet.Combatants.Orc();
-		orc.generateClass();
-		orc.generateWeapon();
-		orc.generateNames();
-		Gauntlet.startAttack(warrior, orc);
+       	
+		
        	break;
        default :
        console.log("everything is broken fml");
@@ -111,7 +112,12 @@ $(document).ready(function() {
   			console.log("Weapon Page Warrior", warrior);
   	}
   });
-
+  $("#defeatEnemies").click(function(){
+  	Gauntlet.startAttack(warrior, orc);
+  });
+  $("#AttackEnemy").click(function(e){
+  	Gauntlet.runAttack(warrior, orc);
+  });
   $("#userBattleground").click(function(e){
   	console.log("attack");
   });

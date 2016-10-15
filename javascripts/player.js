@@ -1,13 +1,13 @@
 /*
   TODO: Modularize this code with IIFE or Browserify
  */
-var Gauntlet = (function() {
-  var Combatants = {};
+var Gauntlet = (function(OldGauntlet) {
+  OldGauntlet.Combatants = {};
     /*
       Define the base object for any player of Gauntlet,
       whether a human player or a monster.
      */
-    Combatants.Player = function(name = "unknown adventurer") {
+    OldGauntlet.Combatants.Player = function(name = "unknown adventurer") {
       this.species = null;
       this.class = null;
       this.weapon = null;
@@ -39,11 +39,11 @@ var Gauntlet = (function() {
       };
     };
 
-    Combatants.Player.prototype.setWeapon = function(newWeapon) {
+    OldGauntlet.Combatants.Player.prototype.setWeapon = function(newWeapon) {
       this.weapon = newWeapon;
     }
 
-    Combatants.Player.prototype.generateClass = function() {
+    OldGauntlet.Combatants.Player.prototype.generateClass = function() {
       // Get a random index from the allowed classes array
       var random = Math.round(Math.random() * (this.allowedClasses.length - 1));
 
@@ -62,7 +62,7 @@ var Gauntlet = (function() {
       Define the base properties for a human in a
       constructor function.
      */
-    Combatants.Human = function() {
+    OldGauntlet.Combatants.Human = function() {
       var randomSkin;
 
       this.species = "Human";
@@ -74,19 +74,19 @@ var Gauntlet = (function() {
 
       this.allowedClasses = ["Warrior", "Berserker", "Valkyrie", "Monk"];
     };
-    Combatants.Human.prototype = new Combatants.Player();
+    OldGauntlet.Combatants.Human.prototype = new OldGauntlet.Combatants.Player();
 
 
     /*
       Define the base properties for a monster in a
       constructor function.
      */
-    Combatants.Monster = function() {
+    OldGauntlet.Combatants.Monster = function() {
       this.health = this.health - 30;
       this.intelligence = this.intelligence -20;
       this.strength = this.strength + 30;
     };
 
-    Combatants.Monster.prototype = new Combatants.Player();
-    return Combatants;
+    OldGauntlet.Combatants.Monster.prototype = new OldGauntlet.Combatants.Player();
+    return OldGauntlet;
 })(Gauntlet || {});

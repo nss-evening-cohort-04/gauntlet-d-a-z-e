@@ -21,12 +21,12 @@ console.log(Gauntlet);
 var spell = new Gauntlet.SpellBook.Sphere();
 console.log("spell: ", spell.toString());
 
-
+var warrior;
 $(document).ready(function() {
   /*
     Show the initial view that accepts player name
 //    */
-var warrior;	
+	
   $("#player-setup").show();
   
   /*
@@ -47,7 +47,19 @@ var warrior;
         break;
       case "card--weapon":
         moveAlong = ($("#player-name").val() !== "");
-        console.log("hi I'm card Weapon");
+        console.log(warrior.class.magical);
+        // $("#userWeapon").hide();
+        // $("#userSpell").hide();
+        if (warrior.class.magical){
+        	$("#userSpell").show();
+        	$("#userWeapon").hide();
+        	
+        	console.log("hi");
+        } else {
+        	$("#userSpell").hide();
+        	$("#userWeapon").show();
+        	console.log("bye");
+        }
         
         break;
        case "card--battleground":

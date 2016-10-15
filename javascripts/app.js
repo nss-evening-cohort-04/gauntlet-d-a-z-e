@@ -64,7 +64,7 @@ $(document).ready(function() {
         break;
        case "card--battleground":
        	moveAlong = ($("#player-name").val() !== "");
-       	$("#output").append(warrior.toString());
+       	console.log(warrior.toString());
 
        	break;
        default :
@@ -78,19 +78,34 @@ $(document).ready(function() {
   });
   
   $("#userClass").click(function(e){
-  		var test = $(e.target).find(".btn__text");
-  		
-  			console.log(test.context.innerHTML);
-  		let clicked = test.context.innerHTML;
-  			warrior.class = new Gauntlet.GuildHall[clicked]();
+  		var test = $(e.target).is(".btn__text");
+  		if (test){
+  			let clicked = $(e.target).find(".btn__text").context.innerHTML;
+  				warrior.class = new Gauntlet.GuildHall[clicked]();
   			console.log("Class Page Warrior", warrior);
+  		} 
+  		console.log(test);
+  		// 	console.log(test.context.innerHTML);
+  		// let clicked = test.context.innerHTML;
+  		
   	});
   $("#userWeapon").click(function(e){
-  	var test = $(e.target).find(".btn__text");
-  		console.log(test.context.innerHTML);
-  		  	let clicked = test.context.innerHTML;
+  	var test = $(e.target).is(".btn__text");
+  	if (test){
+  			let clicked = $(e.target).find(".btn__text").context.innerHTML;
+  		  
   			warrior.weapon = new Gauntlet.Weapons[clicked]();
   			console.log("Weapon Page Warrior", warrior);
+  	}
+  });
+  $("#userSpell").click(function(e){
+  	var test = $(e.target).is(".btn__text");
+  	if (test){
+  		  let clicked = $(e.target).find(".btn__text").context.innerHTML;
+
+  			warrior.weapon = new Gauntlet.SpellBook[clicked]();
+  			console.log("Weapon Page Warrior", warrior);
+  	}
   });
   $("#userBattleground").click(function(e){
   	console.log("attack");

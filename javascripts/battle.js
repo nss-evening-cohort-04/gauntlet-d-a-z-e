@@ -10,16 +10,17 @@ var Gauntlet = (function(OldGauntlet) {
         console.log("Warrior health, post damage: ",warriorObj.health);
         orcObj.health -= warriorObj.weapon.damage;
         console.log("Orc health, post damage: ",orcObj.health);
-        $("#battleStats").append(`<div> Battle${battleObj}: ${warriorObj.playerName} has ${warriorObj.health} left </div>`);
+				$("#battleStats").html(`<div> Battle${battleObj}: ${warriorObj.playerName} has ${warriorObj.health} health remaining</div>`);
+        $("#battleStats").append(`<div> Battle${battleObj}: ${orcObj.playerName} has ${orcObj.health} health remaining</div>`);
         if (warriorObj.health <= 0) {
             $("#loseMessage").append(`You lost to your enemy with ${warriorObj.health} points!`)
-			$("#userLose").modal('show'); 
+			$("#userLose").modal('show');
         } else if (orcObj.health <= 0) {
             $("#winMessage").append(`You won with ${warriorObj.health} points over your enemy!`)
-			$("#userWin").modal('show'); 
+			$("#userWin").modal('show');
         }
 
-		
+
 	};
 	return OldGauntlet;
 })(Gauntlet || {});

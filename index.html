@@ -241,11 +241,57 @@
       </div>
 
       <div class="container-fluid" id="userBattleground">
-          <div id="output">
+          <div id="stats">
+            <div id="warriorStats">
+            </div>
+            <div id="orcStats">
+            </div>
+          </div>         
+          <div id="battleStats">
           </div>
 
       </div>
+     <!--  Modal Win -->
+      <div class="modal fade" id="userWin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h4 class="modal-title" id="myModalLabel">You Won!!!</h4>
+            </div>
+            <div class="modal-body" id="winMessage">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" onclick="document.location.reload(true);">Play Again</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
+<!--  Modal Lose -->
+      <div class="modal fade" id="userLose" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h4 class="modal-title" id="myModalLabel">You Lose :( !!!</h4>
+            </div>
+            <div class="modal-body" id="loseMessage">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" onclick="document.location.reload(true);">Play Again</button>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="card__button">
         <a class="card__link btn btn--big btn--orange"
            href="#"
@@ -259,7 +305,7 @@
   </article>
 
   <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-  <!-- <script src="javascripts/Gauntlet.js"></script> -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="javascripts/player.js"></script>
   <script src="javascripts/classes.js"></script>
   <script src="javascripts/weapons.js"></script>

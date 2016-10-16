@@ -26,13 +26,13 @@ $(document).ready(function() {
   /*
     Show the initial view that accepts player name
 //    */
-	
+  
   $("#player-setup").show();
   var warrior;
   var orc = new Gauntlet.Combatants.Orc();
-	orc.generateClass();
-	orc.generateWeapon();
-	orc.generateNames();
+  orc.generateClass();
+  orc.generateWeapon();
+  orc.generateNames();
   /*
     When any button with card__link class is clicked,
     move on to the next view.
@@ -40,7 +40,7 @@ $(document).ready(function() {
   $(".card__link").click(function(e) {
     var nextCard = $(this).attr("next");
     var moveAlong = false;
-	
+  
     switch (nextCard) {
       case "card--class":
         moveAlong = ($("#player-name").val() !== "");
@@ -53,22 +53,22 @@ $(document).ready(function() {
         moveAlong = (warrior.class !== null);
         console.log(warrior.class.magical);
         if (warrior.class.magical){
-        	$("#userSpell").show();
-        	$("#userWeapon").hide();
-        	
-        	console.log("hi");
+          $("#userSpell").show();
+          $("#userWeapon").hide();
+          
+          console.log("hi");
         } else {
-        	$("#userSpell").hide();
-        	$("#userWeapon").show();
-        	console.log("bye");
+          $("#userSpell").hide();
+          $("#userWeapon").show();
+          console.log("bye");
         }
     
         break;
        case "card--battleground":
-       	moveAlong = (warrior.weapon !== null);
-       	
-		
-       	break;
+        moveAlong = (warrior.weapon !== null);
+        
+    
+        break;
        default :
        console.log("everything is broken fml");
     }
@@ -80,46 +80,49 @@ $(document).ready(function() {
   });
   
   $("#userClass").click(function(e){
-  		var test = $(e.target).is(".btn__text");
-  		if (test){
-  			let clicked = $(e.target).find(".btn__text").context.innerHTML;
-  			if (clicked === "surprise me"){
-  				warrior.generateClass(); 
-  			} else {
-  				warrior.class = new Gauntlet.GuildHall[clicked]();
-  			}
-  			
-  			console.log("Class Page Warrior", warrior);
-  		} 
-  		
-  	});
+      var test = $(e.target).is(".btn__text");
+      if (test){
+        let clicked = $(e.target).find(".btn__text").context.innerHTML;
+        if (clicked === "surprise me"){
+          warrior.generateClass(); 
+        } else {
+          warrior.class = new Gauntlet.GuildHall[clicked]();
+        }
+        
+        console.log("Class Page Warrior", warrior);
+      } 
+      
+    });
 
   $("#userWeapon").click(function(e){
-  	var test = $(e.target).is(".btn__text");
-  	if (test){
-  			let clicked = $(e.target).find(".btn__text").context.innerHTML;
-  		  
-  			warrior.weapon = new Gauntlet.Weapons[clicked]();
-  			console.log("Weapon Page Warrior", warrior);
-  	}
+    var test = $(e.target).is(".btn__text");
+    if (test){
+        let clicked = $(e.target).find(".btn__text").context.innerHTML;
+        
+        warrior.weapon = new Gauntlet.Weapons[clicked]();
+        console.log("Weapon Page Warrior", warrior);
+    }
   });
   $("#userSpell").click(function(e){
-  	var test = $(e.target).is(".btn__text");
-  	if (test){
-  		  let clicked = $(e.target).find(".btn__text").context.innerHTML;
+    var test = $(e.target).is(".btn__text");
+    if (test){
+        let clicked = $(e.target).find(".btn__text").context.innerHTML;
 
-  			warrior.weapon = new Gauntlet.SpellBook[clicked]();
-  			console.log("Weapon Page Warrior", warrior);
-  	}
+        warrior.weapon = new Gauntlet.SpellBook[clicked]();
+        console.log("Weapon Page Warrior", warrior);
+    }
   });
-  $("#defeatEnemies").click(function(){
-  	Gauntlet.startAttack(warrior, orc);
+
+  $("#defeatEnemies").click(function(e){
+      Gauntlet.startAttack(warrior, orc);
   });
+  var battle = 0;
   $("#AttackEnemy").click(function(e){
-  	Gauntlet.runAttack(warrior, orc);
+      battle++;
+      Gauntlet.runAttack(warrior, orc, battle);
   });
   $("#userBattleground").click(function(e){
-  	console.log("attack");
+    console.log("attack");
   });
 
   /*

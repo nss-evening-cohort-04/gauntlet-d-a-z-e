@@ -7,8 +7,12 @@ var Gauntlet = (function(OldGauntlet) {
 	};
 	OldGauntlet.runAttack = function(warriorObj, orcObj, battleObj){
         warriorObj.health -= orcObj.weapon.damage;
+				var warriorHealthBar = document.getElementById("warrior_health");
+				warriorHealthBar.value = warriorObj.health;
         console.log("Warrior health, post damage: ",warriorObj.health);
-        orcObj.health -= warriorObj.weapon.damage;
+				orcObj.health -= warriorObj.weapon.damage;
+				var orcHealthBar = document.getElementById("orc_health");
+        orcHealthBar.value = orcObj.health;
         console.log("Orc health, post damage: ",orcObj.health);
 				$("#battleStats").html(`<div> Battle${battleObj}: ${warriorObj.playerName} has ${warriorObj.health} health remaining</div>`);
         $("#battleStats").append(`<div> Battle${battleObj}: ${orcObj.playerName} has ${orcObj.health} health remaining</div>`);

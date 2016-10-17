@@ -48,6 +48,7 @@ $(document).ready(function() {
         var player = $("#player-name").val();
         warrior = new Gauntlet.Combatants.Human();
         warrior.playerName = player;
+        $("body").tooltip({ selector: '[data-toggle=tooltip]' });
         break;
       case "card--weapon":
         moveAlong = (warrior.class !== null);
@@ -88,9 +89,11 @@ $(document).ready(function() {
   });
 
   $("#userClass").click(function(e){
+
       var test = $(e.target).is(".btn__text");
       if (test){
         let clicked = $(e.target).find(".btn__text").context.innerHTML;
+
         if (clicked === "surprise me"){
           warrior.generateClass();
         } else {
@@ -128,6 +131,9 @@ $(document).ready(function() {
   $("#AttackEnemy").click(function(e){
       battle++;
       Gauntlet.runAttack(warrior, orc, battle);
+      console.log("warrior.intelligence", warrior.intelligence);
+      console.log("warrior.strength", warrior.strength);
+      console.log("warrior.limbs", warrior.limbs);
   });
   $("#userBattleground").click(function(e){
     console.log("attack");

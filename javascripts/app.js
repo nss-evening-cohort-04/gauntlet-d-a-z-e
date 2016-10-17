@@ -48,7 +48,7 @@ $(document).ready(function() {
         var player = $("#player-name").val();
         warrior = new Gauntlet.Combatants.Human();
         warrior.playerName = player;
-        $("body").tooltip({ selector: '[data-toggle=tooltip]' });
+
         break;
       case "card--weapon":
         moveAlong = (warrior.class !== null);

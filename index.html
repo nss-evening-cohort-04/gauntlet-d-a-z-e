@@ -48,15 +48,15 @@
         <div class="row">
           <div class="col-sm-4">
             <div class="card__button">
-              <a class="class__link btn btn--big btn--blue" href="#" data-toggle="tooltip" data-original-title="Warrior">
-                <span class="btn__text" id="Warrior">Warrior</span>
+              <a class="class__link btn btn--big btn--blue" href="#">
+                <span class="btn__text">Warrior</span>
               </a>
             </div>
 
             <div class="card__button">
               <a class="class__link btn btn--big btn--blue" href="#">
 
-                <span class="btn__text" id="Valkyrie">Valkyrie</span>
+                <span class="btn__text">Valkyrie</span>
               </a>
             </div>
 
@@ -240,12 +240,24 @@
       </div>
 
       <div class="container-fluid" id="userBattleground">
+        <div class="row">
           <div id="stats">
-            <div id="warriorStats">
+            <div class="col-sm-6">
+              <div id="warriorStats">
+                
+              </div>
+              <!-- <progress id="warrior_health" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></progress> -->
+              <progress class="progress" id="warrior_health" value="100" max="100"></progress>
             </div>
-            <div id="orcStats">
+            <div class="col-sm-6">
+              <div id="orcStats">
+               
+              </div>
+               <progress class="progress" id="orc_health" value="100" max="100"></progress>
             </div>
           </div>
+        </div>  
+          
           <div id="battleStats">
           </div>
 
@@ -303,7 +315,7 @@
               </a>
             </div>
           </div>
-          <div class="col-sm-6">
+          <!-- <div class="col-sm-6">
              <div class="card__button">
               <a class="card__link btn btn--big btn--orange"
                  href="#"
@@ -312,7 +324,7 @@
                 <span class="btn__text" id="castSpell">Cast A Spell</span>
               </a>
             </div>
-          </div>
+          </div> -->
        </div> 
     </section>
 

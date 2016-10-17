@@ -21,7 +21,7 @@ body {
 /*
   Section styles
  */
-.card { 
+.card {
   display: none;
 }
 
@@ -105,4 +105,9 @@ body {
 }
 #stats {
   background-color: lightgrey;
+}
+
+.disabledbutton {
+    pointer-events: none;
+    opacity: 0.4;
 }

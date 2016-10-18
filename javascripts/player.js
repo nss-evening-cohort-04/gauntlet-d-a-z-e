@@ -32,7 +32,6 @@ var Gauntlet = (function(OldGauntlet) {
       var random = Math.round(Math.random() * (this.allowedHouses.length - 1));
 
       // Get the string at the index
-      this.allowedHouses = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"];
       var randomClass = this.allowedHouses[random];
 
       // Composes the corresponding player class into the player object

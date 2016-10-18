@@ -3,7 +3,23 @@ console.log(Gauntlet);
 
 
 
+
 $(document).ready(function() {
+var harryPotter;
+var spotifyApi = new SpotifyWebApi();
+spotifyApi.getTrack('6CeCOC2zx1qS8mQNYHe6IM')
+  .then(function(data){
+    console.log("data", data);
+    harryPotter = data.preview_url;
+    console.log("harryPotter url", harryPotter);
+    $("#harryPotterTheme").attr("src", harryPotter);
+    console.log($("#harryPotterTheme"));
+    $("#harryPotterTheme").get(0).play();
+  }, function(err){
+    console.log(err);
+  });
+
+$("#battleImage").hide();
   /*
     Show the initial view that accepts player name
 //    */
@@ -111,22 +127,26 @@ $(document).ready(function() {
   });
   var battle = 0;
   $("#AttackEnemy").click(function(e){
+      Gauntlet.generateImage();
       battle++;
-      Gauntlet.runAttack(student, deathEater, battle);
+      let type = student.patronus;
+      Gauntlet.runAttack(student, deathEater, type, battle);
       
   });
   $("#castSpell").click(function(e){
+    Gauntlet.generateImage();
     battle++;
     student.generateSpell();
-    console.log("generate spell", student.spell);
-    console.log("student with spell", student);
-    Gauntlet.castSpell(student, deathEater, battle);
+    let type = student.spell;
+    Gauntlet.runAttack(student, deathEater, type, battle);
     
   });
   $("#getFriend").click(function(e){
+    Gauntlet.generateImage();
     battle++;
     student.generateCreature();
-    Gauntlet.getFriend(student, deathEater, battle);
+    let type = student.creature;
+    Gauntlet.runAttack(student, deathEater, type, battle);
     
   });
   /*

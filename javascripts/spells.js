@@ -11,9 +11,9 @@ var Gauntlet = (function(OldGauntlet){
   OldGauntlet.SpellBook.Spell = function() {
     this.name = "";
     this.damage = 0;
-
     this.toString = function() {
-      return this.name;
+      return "cast " + this.name + " for " + this.damage + " damage";
+
     }
   };
 

@@ -11,9 +11,9 @@ var Gauntlet = (function(OldGauntlet) {
     this.name = "Patronus"
     this.animal = "";
     this.damage = 0;
-
     this.toString = function() {
-      return this.name + " of " + this.animal;
+      return "cast " + this.name + " of " + this.animal + " for " + this.damage + " damage";
+
     }
   };
 

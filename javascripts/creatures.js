@@ -8,6 +8,7 @@ var Gauntlet = (function(OldGauntlet){
 
     this.toString = function() {
       var friendOutput = [
+      "been helped by ",
       this.name, 
       " a ", 
       this.species,

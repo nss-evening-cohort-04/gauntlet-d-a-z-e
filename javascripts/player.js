@@ -96,13 +96,13 @@ var Gauntlet = (function(OldGauntlet) {
       this.allowedCreatures = ["Dobby", "Buckbeak", "Fawkes"];
       this.toString = function() {
         var output = [this.playerName,
-          "<br />",
+          " is in ",
           this.house,
-          "<br />",
-          this.patronus,
-          "<br />",
+          " with a ",
+          this.spell,
+          ", and has health of ",
           this.health,
-          " Health"
+          "!"
         ].join("");
         return output;
       };
@@ -133,6 +133,5 @@ var Gauntlet = (function(OldGauntlet) {
     };
 
     OldGauntlet.Combatants.DeathEater.prototype = new OldGauntlet.Combatants.Player();
-
     return OldGauntlet;
 })(Gauntlet || {});

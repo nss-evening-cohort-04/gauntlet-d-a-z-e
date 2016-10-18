@@ -153,3 +153,8 @@ input, .modal {
   margin: 0;
   text-align: center;
 }
+#studentStats,
+#deathEaterStats {
+  font-size: .8em;
+}
+

@@ -2,9 +2,12 @@ var Gauntlet = (function(OldGauntlet) {
 	
 	OldGauntlet.startAttack = function(studentObj, deathEaterObj){
 		$("#studentStats").html("");
-		$("#studentStats").append(studentObj.toString());
+		$("#studentStats").append(`${studentObj.playerName}<br />${studentObj.house}<br />${studentObj.patronus} <br />${studentObj.health}<br />`);
 		$("#deathEaterStats").html("");
-		$("#deathEaterStats").append(deathEaterObj.toString());
+		$("#deathEaterStats").append(`${deathEaterObj.playerName}<br />${deathEaterObj.house}<br />${deathEaterObj.spell} <br />${deathEaterObj.health}<br />`);
+		$("#img_player").html(studentObj.house.image);
+		$("#img_enemy").html(deathEaterObj.image);
+		console.log("deathEaterObj.image ",deathEaterObj.image);
 	};
 	OldGauntlet.generateImage = function(){
 		var Gifs = new Array();

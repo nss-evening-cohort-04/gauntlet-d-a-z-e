@@ -8,6 +8,7 @@ OldGauntlet.Combatants.Voldemort = function() {
   this.allowedNames = ["Zoe Ames", "Nathan Gonzalez", "William Hickok"]
   this.allowedSpells = ["Imperio", "Crucio"];
   this.house = "Slytherin",
+  this.image = "<img src='../img/voldemort.jpg' width=300px height=250px>";
   this.generateNames = function(){
     var random = Math.round(Math.random() * (this.allowedNames.length - 1));
 

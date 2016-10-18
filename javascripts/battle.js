@@ -4,6 +4,9 @@ var Gauntlet = (function(OldGauntlet) {
 		$("#studentStats").append(studentObj.toString());
 		$("#deathEaterStats").html("");
 		$("#deathEaterStats").append(deathEaterObj.toString());
+		$("#img_player").html(studentObj.house.image);
+		$("#img_enemy").html(deathEaterObj.image);
+		console.log("deathEaterObj.image ",deathEaterObj.image);
 	};
 	OldGauntlet.runAttack = function(studentObj, deathEaterObj, battleObj){
         studentObj.health -= deathEaterObj.spell.damage;

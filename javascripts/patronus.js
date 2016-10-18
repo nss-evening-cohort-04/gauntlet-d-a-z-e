@@ -13,7 +13,7 @@ var Gauntlet = (function(OldGauntlet) {
     this.damage = 0;
 
     this.toString = function() {
-      return this.name + " of " + this.animal + " for " + this.damage + " damage";
+      return this.name + " of " + this.animal;
     }
   };
 

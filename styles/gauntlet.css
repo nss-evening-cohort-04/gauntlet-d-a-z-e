@@ -116,3 +116,8 @@ input {
     pointer-events: none;
     opacity: 0.4;
 }
+
+#studentStats,
+#deathEaterStats {
+  font-size: .8em;
+}

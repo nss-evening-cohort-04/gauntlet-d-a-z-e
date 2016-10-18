@@ -48,7 +48,7 @@ var Gauntlet = (function(OldGauntlet) {
       var random = Math.round(Math.random() * (this.allowedSpells.length - 1));
 
       // Get the string at the index
-      this.allowedSpells = ["Expelliarmus", "Conjunctivitis", "Confringo"];
+      
       var randomClass = this.allowedSpells[random];
 
       // Composes the corresponding player class into the player object
@@ -93,6 +93,8 @@ var Gauntlet = (function(OldGauntlet) {
       this.skinColor = this.skinColors[randomSkin];
 
       this.allowedHouses = ["Ravenclaw", "Slytherin", "Gryffindor", "Hufflepuff"];
+      this.allowedSpells = ["Expelliarmus", "Conjunctivitis", "Confringo"];
+      this.allowedCreatures = ["Dobby", "Buckbeak", "Fawkes"];
       this.toString = function() {
         var output = [this.playerName,
           " is in ",
@@ -117,7 +119,18 @@ var Gauntlet = (function(OldGauntlet) {
       this.health = this.health - 30;
       this.intelligence = this.intelligence -20;
       this.strength = this.strength + 30;
-      
+      this.toString = function() {
+        var output = [this.playerName,
+          " is in ",
+          this.house,
+          " with a ",
+          this.spell,
+          ", and has health of ",
+          this.health,
+          "!"
+        ].join("");
+        return output;
+      };
     };
 
     OldGauntlet.Combatants.DeathEater.prototype = new OldGauntlet.Combatants.Player();

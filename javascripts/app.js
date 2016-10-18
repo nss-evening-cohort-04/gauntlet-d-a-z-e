@@ -13,6 +13,7 @@ $(document).ready(function() {
   var deathEater = new Gauntlet.Combatants.Voldemort();
   deathEater.generateSpell();
   deathEater.generateNames();
+  console.log("deathEater", deathEater);
   /*
     When any button with card__link class is clicked,
     move on to the next view.
@@ -91,6 +92,7 @@ $(document).ready(function() {
         let clicked = $(e.target).find(".btn__text").context.innerHTML;
 
         student.patronus = new Gauntlet.Patroni[clicked]();
+        console.log("patronus", student);
     }
   });
   // $("#userSpell").click(function(e){
@@ -114,11 +116,13 @@ $(document).ready(function() {
   });
   $("#castSpell").click(function(e){
     battle++;
+    student.generateSpell();
     Gauntlet.castSpell(student, deathEater, battle);
     
   });
   $("#getFriend").click(function(e){
     battle++;
+    student.generateCreature();
     Gauntlet.getFriend(student, deathEater, battle);
     
   });

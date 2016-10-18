@@ -2,35 +2,14 @@ var Gauntlet = (function(OldGauntlet){
   // OldGauntlet.Orc = {};
 
 
-OldGauntlet.Combatants.Orc = function() {
+OldGauntlet.Combatants.Voldemort = function() {
   this.health = this.health + 20;
-  this.species = "Orc";
+  this.species = "Voldemort";
   this.allowedNames = ["Zoe Ames", "Nathan Gonzalez", "William Hickok"]
-  this.allowedClasses = ["Warrior", "Berserker", "Shaman"];
-  this.allowedWeapons = ["Dagger", "BroadSword", "WarAxe"];
-  this.generateClass = function() {
-    // Get a random index from the allowed classes array
-    var random = Math.round(Math.random() * (this.allowedClasses.length - 1));
-
-    // Get the string at the index
-    var randomClass = this.allowedClasses[random];
-
-    // Composes the corresponding player class into the player object
-    this.class = new OldGauntlet.GuildHall[randomClass]();
-    return this.class;
-  };
-  this.generateWeapon = function(){
-    var random = Math.round(Math.random() * (this.allowedClasses.length - 1));
-
-      // Get the string at the index
-      var randomClass = this.allowedWeapons[random];
-
-      // Composes the corresponding player class into the player object
-      this.weapon = new OldGauntlet.Weapons[randomClass]();
-      return this.weapon;
-  };
+  this.allowedSpells = ["Imperio", "Crucio"];
+  this.house = "Slytherin",
   this.generateNames = function(){
-    var random = Math.round(Math.random() * (this.allowedClasses.length - 1));
+    var random = Math.round(Math.random() * (this.allowedNames.length - 1));
 
       // Get the string at the index
       var randomClass = this.allowedNames[random];
@@ -42,7 +21,7 @@ OldGauntlet.Combatants.Orc = function() {
 };
 
 
-OldGauntlet.Combatants.Orc.prototype = new OldGauntlet.Combatants.Monster();
+OldGauntlet.Combatants.Voldemort.prototype = new OldGauntlet.Combatants.DeathEater();
 
 return OldGauntlet;
 })(Gauntlet || {})

@@ -21,75 +21,119 @@ var Gauntlet = (function(OldGauntlet) {
       this.strength = 90;
       this.intelligence = 90;
 
-      this.toString = function() {
-        var output = [this.playerName,
-          ": a ",
-          this.skinColor,
-          " skinned ",
-          this.species,
-          " ",
-          this.class,
-          " with ",
-          this.health,
-          " health. ",
-          (this.class.magical) ? "Able to cast " : " Wielding a ",
-          this.weapon.toString(),
-          "!"
-        ].join("");
-        return output;
-      };
     };
 
-    OldGauntlet.Combatants.Player.prototype.setWeapon = function(newWeapon) {
-      this.weapon = newWeapon;
-    }
+    // OldGauntlet.Combatants.Player.prototype.setWeapon = function(newWeapon) {
+    //   this.weapon = newWeapon;
+    // }
 
-    OldGauntlet.Combatants.Player.prototype.generateClass = function() {
+    OldGauntlet.Combatants.Player.prototype.generateHouse = function() {
       // Get a random index from the allowed classes array
-      var random = Math.round(Math.random() * (this.allowedClasses.length - 1));
+      var random = Math.round(Math.random() * (this.allowedHouses.length - 1));
 
       // Get the string at the index
-      var randomClass = this.allowedClasses[random];
+      this.allowedHouses = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"];
+      var randomClass = this.allowedHouses[random];
 
       // Composes the corresponding player class into the player object
-      this.class = new OldGauntlet.GuildHall[randomClass]();
+      this.house = new OldGauntlet.Hogwarts[randomClass]();
 
       // Add the health bonus
-      this.health += this.class.healthBonus;
-      return this.class;
+      // this.health += this.class.healthBonus;
+      return this.house;
+    };
+
+    OldGauntlet.Combatants.Player.prototype.generateSpell = function() {
+      // Get a random index from the allowed classes array
+      var random = Math.round(Math.random() * (this.allowedSpells.length - 1));
+
+      // Get the string at the index
+      
+      var randomClass = this.allowedSpells[random];
+
+      // Composes the corresponding player class into the player object
+      this.spell = new OldGauntlet.SpellBook[randomClass]();
+
+      // Add the health bonus
+      // this.damage += this.class.healthBonus;
+      return this.spell;
+    };
+
+    OldGauntlet.Combatants.Player.prototype.generateCreature = function() {
+      // Get a random index from the allowed classes array
+      var random = Math.round(Math.random() * (this.allowedCreatures.length - 1));
+
+      // Get the string at the index
+      var randomClass = this.allowedCreatures[random];
+
+      // Composes the corresponding player class into the player object
+      this.creature = new OldGauntlet.Creatures[randomClass]();
+
+      // Add the health bonus
+      // this.health += this.class.healthBonus;
+      return this.creature;
     };
 
     /*
       Define the base properties for a human in a
       constructor function.
      */
-    OldGauntlet.Combatants.Human = function() {
+    OldGauntlet.Combatants.Wizard = function() {
       var randomSkin;
 
       this.species = "Human";
       this.intelligence = this.intelligence + 20;
+      this.house = null;
+      this.patronus = null;
+      this.spell = null;
+      this.creature = null;
 
       this.skinColors.push("brown", "red", "white", "disease");
       randomSkin = Math.round(Math.random() * (this.skinColors.length-1));
       this.skinColor = this.skinColors[randomSkin];
 
-      this.allowedClasses = ["Warrior", "Berserker", "Valkyrie", "Monk"];
+      this.allowedHouses = ["Ravenclaw", "Slytherin", "Gryffindor", "Hufflepuff"];
+      this.allowedSpells = ["Expelliarmus", "Conjunctivitis", "Confringo"];
+      this.allowedCreatures = ["Dobby", "Buckbeak", "Fawkes"];
+      this.toString = function() {
+        var output = [this.playerName,
+          " is in ",
+          this.house,
+          " with a ",
+          this.patronus,
+          ", and has health of ",
+          this.health,
+          "!"
+        ].join("");
+        return output;
+      };
     };
-    OldGauntlet.Combatants.Human.prototype = new OldGauntlet.Combatants.Player();
+    OldGauntlet.Combatants.Wizard.prototype = new OldGauntlet.Combatants.Player();
 
-
+    
     /*
       Define the base properties for a monster in a
       constructor function.
      */
-    OldGauntlet.Combatants.Monster = function() {
+    OldGauntlet.Combatants.DeathEater = function() {
       this.health = this.health - 30;
       this.intelligence = this.intelligence -20;
       this.strength = this.strength + 30;
-      
+      this.toString = function() {
+        var output = [this.playerName,
+          " is in ",
+          this.house,
+          " with a ",
+          this.spell,
+          ", and has health of ",
+          this.health,
+          "!"
+        ].join("");
+        return output;
+      };
     };
 
-    OldGauntlet.Combatants.Monster.prototype = new OldGauntlet.Combatants.Player();
+    OldGauntlet.Combatants.DeathEater.prototype = new OldGauntlet.Combatants.Player();
 
     return OldGauntlet;
 })(Gauntlet || {});

@@ -2,25 +2,6 @@
 console.log(Gauntlet);
 
 
-/*
-  Test code to generate a human player and an orc player
- */
-// var warrior = new Gauntlet.Combatants.Human();
-// warrior.setWeapon(new Gauntlet.Weapons.WarAxe());
-// warrior.generateClass();  // This will be used for "Surprise me" option
-// console.log(warrior.toString());
-
-// var orc = new Gauntlet.Combatants.Orc();
-// orc.generateClass();
-// orc.setWeapon(new Gauntlet.Weapons.BroadSword());
-// console.log(orc.toString());
-
-
-  // Test code to generate a spell
-
-var spell = new Gauntlet.SpellBook.Sphere();
-console.log("spell: ", spell.toString());
-
 
 $(document).ready(function() {
   /*
@@ -28,11 +9,11 @@ $(document).ready(function() {
 //    */
 
   $("#player-setup").show();
-  var warrior;
-  var orc = new Gauntlet.Combatants.Orc();
-  orc.generateClass();
-  orc.generateWeapon();
-  orc.generateNames();
+  var student;
+  var deathEater = new Gauntlet.Combatants.Voldemort();
+  deathEater.generateSpell();
+  deathEater.generateNames();
+  console.log("deathEater", deathEater);
   /*
     When any button with card__link class is clicked,
     move on to the next view.
@@ -46,33 +27,33 @@ $(document).ready(function() {
         moveAlong = ($("#player-name").val() !== "");
         console.log("hi I'm card Class");
         var player = $("#player-name").val();
-        warrior = new Gauntlet.Combatants.Human();
-        warrior.playerName = player;
+        student = new Gauntlet.Combatants.Wizard();
+        student.playerName = player;
 
         break;
       case "card--weapon":
-        moveAlong = (warrior.class !== null);
-        if (warrior.class === null) {
-          alert("Please select a class.");
+        moveAlong = (student.house !== null);
+        if (student.house === null) {
+          alert("Please select a house.");
           break;
         }
-        console.log(warrior.class.magical);
-        if (warrior.class.magical){
-          $("#userSpell").show();
-          $("#userWeapon").hide();
+        // console.log(warrior.class.magical);
+        // if (warrior.class.magical){
+        //   $("#userSpell").show();
+        //   $("#userWeapon").hide();
 
-          console.log("hi");
-        } else {
-          $("#userSpell").hide();
-          $("#userWeapon").show();
-          console.log("bye");
-        }
+        //   console.log("hi");
+        // } else {
+        //   $("#userSpell").hide();
+        //   $("#userWeapon").show();
+        //   console.log("bye");
+        // }
 
         break;
        case "card--battleground":
-        moveAlong = (warrior.weapon !== null);
-        if (warrior.weapon === null) {
-          alert("Please select a weapon.");
+        moveAlong = (student.patronus !== null);
+        if (student.patronus === null) {
+          alert("Please select a patronus.");
           break;
         }
 
@@ -88,57 +69,63 @@ $(document).ready(function() {
     }
   });
 
-  $("#userClass").click(function(e){
+  $("#userSortingHat").click(function(e){
 
       var test = $(e.target).is(".btn__text");
       if (test){
         let clicked = $(e.target).find(".btn__text").context.innerHTML;
 
-        if (clicked === "surprise me"){
-          warrior.generateClass();
+        if (clicked === "Put on the Sorting Hat"){
+          student.generateHouse();
         } else {
-          warrior.class = new Gauntlet.GuildHall[clicked]();
+          student.house = new Gauntlet.Hogwarts[clicked]();
+          console.log("student", student);
         }
 
-        console.log("Class Page Warrior", warrior);
       }
 
     });
 
-  $("#userWeapon").click(function(e){
+  $("#userPatronus").click(function(e){
     var test = $(e.target).is(".btn__text");
     if (test){
         let clicked = $(e.target).find(".btn__text").context.innerHTML;
 
-        warrior.weapon = new Gauntlet.Weapons[clicked]();
-        console.log("Weapon Page Warrior", warrior);
+        student.patronus = new Gauntlet.Patroni[clicked]();
+        console.log("patronus", student);
     }
   });
-  $("#userSpell").click(function(e){
-    var test = $(e.target).is(".btn__text");
-    if (test){
-        let clicked = $(e.target).find(".btn__text").context.innerHTML;
+  // $("#userSpell").click(function(e){
+  //   var test = $(e.target).is(".btn__text");
+  //   if (test){
+  //       let clicked = $(e.target).find(".btn__text").context.innerHTML;
 
-        warrior.weapon = new Gauntlet.SpellBook[clicked]();
-        console.log("Weapon Page Warrior", warrior);
-    }
-  });
+  //       warrior.weapon = new Gauntlet.SpellBook[clicked]();
+  //       console.log("Weapon Page Warrior", warrior);
+  //   }
+  // });
 
   $("#defeatEnemies").click(function(e){
-      Gauntlet.startAttack(warrior, orc);
+      Gauntlet.startAttack(student, deathEater);
   });
   var battle = 0;
   $("#AttackEnemy").click(function(e){
       battle++;
-      Gauntlet.runAttack(warrior, orc, battle);
-      console.log("warrior.intelligence", warrior.intelligence);
-      console.log("warrior.strength", warrior.strength);
-      console.log("warrior.limbs", warrior.limbs);
+      Gauntlet.runAttack(student, deathEater, battle);
+      
   });
-  $("#userBattleground").click(function(e){
-    console.log("attack");
+  $("#castSpell").click(function(e){
+    battle++;
+    student.generateSpell();
+    Gauntlet.castSpell(student, deathEater, battle);
+    
   });
-
+  $("#getFriend").click(function(e){
+    battle++;
+    student.generateCreature();
+    Gauntlet.getFriend(student, deathEater, battle);
+    
+  });
   /*
     When the back button clicked, move back a view
    */

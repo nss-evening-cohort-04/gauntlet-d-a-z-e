@@ -133,7 +133,6 @@ var Gauntlet = (function(OldGauntlet) {
     };
 
     OldGauntlet.Combatants.DeathEater.prototype = new OldGauntlet.Combatants.Player();
-
     return OldGauntlet;
 })(Gauntlet || {});
 

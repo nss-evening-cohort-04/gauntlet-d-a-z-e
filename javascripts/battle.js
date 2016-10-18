@@ -12,11 +12,12 @@ var Gauntlet = (function(OldGauntlet) {
 		Gifs[1]="../gif/gif2.gif";
 		Gifs[2]="../gif/gif3.gif";
 		var random = Math.round(Math.random() * Gifs.length - 1);
-		console.log("random", random);
+		
 		var printGif = Gifs[random];
-		console.log("printGif", printGif);
+		
 		// $("#batteImage").attr("src", "");
 		$("#battleImage").attr("src", printGif);
+		$("#battleImage").css("display", "block");
 		console.log($("#battleImage"));
 		$('#battleImage').fadeIn('fast').delay(2000).fadeOut('fast');
 	};

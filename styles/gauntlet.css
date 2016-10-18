@@ -3,6 +3,11 @@ body {
   margin: 0;
   padding: 10px;
   font-size: 3em;
+  background: #000 url("../img/hogwartscastle.jpg") no-repeat fixed center;
+  color: #FFF;
+}
+input {
+  color: #000;
 }
 
 .field {

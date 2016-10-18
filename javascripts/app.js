@@ -75,7 +75,7 @@ $(document).ready(function() {
       if (test){
         let clicked = $(e.target).find(".btn__text").context.innerHTML;
 
-        if (clicked === "Put on the Sorting Hat"){
+        if (clicked === "Sorting Hat"){
           student.generateHouse();
         } else {
           student.house = new Gauntlet.Hogwarts[clicked]();

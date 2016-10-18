@@ -1,10 +1,9 @@
-<<<<<<< Updated upstream
-=======
+
 @font-face {
   font-family: "HarryPotter";
   src: url("../fonts/HarryPotter.TTF");
 }
->>>>>>> Stashed changes
+
 body {
   font-family: "Lato", "Helvetica", "sans-serif";
   margin: 0;
@@ -13,7 +12,16 @@ body {
   background: #000 url("../img/hogwartscastle.jpg") no-repeat fixed center;
   color: #FFF;
 }
-input {
+
+body, a:hover {
+  cursor: url(http://cur.cursors-4u.net/user/use-1/use160.cur), progress !important;
+  } /* End http://www.cursors-4u.com */
+
+h1 {
+  font-family: "HarryPotter", "sans-serif";
+  font-size: 2em;
+}
+input, .modal {
   color: #000;
 }
 
@@ -87,6 +95,17 @@ input {
   background-color: #F3C500;
 }
 
+.btn--black {
+  color: white;
+  background-color: #000;
+  opacity: 0.85;
+}
+.btn--white {
+  color: #F3C500;
+  background-color: #FFF;
+  opacity: 0.8;
+}
+
 .btn--big {
   font-size: 28px;
   padding: 10px;
@@ -114,17 +133,17 @@ input {
 .btn__text {
   padding: 0 50px 0 20px;
   border-radius: 0 5px 5px 0;
+  font-family: "HarryPotter", "sans-serif";
 }
-#stats {
-  background-color: lightgrey;
-}
-
 .disabledbutton {
     pointer-events: none;
     opacity: 0.4;
 }
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
+=======
+>>>>>>> 6e5ad755d1cce17ec7217590e1060c5cdde147d1
 .patronus, .crest {
   width: 6em;
 }
@@ -185,4 +204,3 @@ input {
     -webkit-animation-name: bounce;
     animation-name: bounce;
 }
->>>>>>> Stashed changes

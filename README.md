@@ -17,6 +17,9 @@ then navigate to http://localhost:9999 in your browser.
 
 ## Contributors
 [Zoe LeBlanc](https://github.com/ZoeLeBlanc)
+
 [Ellen Bailey](https://github.com/lnbailey)
+
 [Dani Adkins](https://github.com/itsdanirenae)
+
 [Alex Saber](http://github.com/alexsaber89)

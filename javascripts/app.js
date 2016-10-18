@@ -74,9 +74,10 @@ $(document).ready(function() {
       var test = $(e.target).is(".btn__text");
       if (test){
         let clicked = $(e.target).find(".btn__text").context.innerHTML;
-
+        console.log("clicked", clicked);
         if (clicked === "Sorting Hat"){
           student.generateHouse();
+          console.log("student", student);
         } else {
           student.house = new Gauntlet.Hogwarts[clicked]();
           console.log("student", student);
@@ -117,6 +118,8 @@ $(document).ready(function() {
   $("#castSpell").click(function(e){
     battle++;
     student.generateSpell();
+    console.log("generate spell", student.spell);
+    console.log("student with spell", student);
     Gauntlet.castSpell(student, deathEater, battle);
     
   });

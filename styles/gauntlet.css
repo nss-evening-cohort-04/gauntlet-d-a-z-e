@@ -6,7 +6,7 @@ body {
   background: #000 url("../img/hogwartscastle.jpg") no-repeat fixed center;
   color: #FFF;
 }
-input {
+input, .modal {
   color: #000;
 }
 

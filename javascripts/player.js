@@ -21,23 +21,6 @@ var Gauntlet = (function(OldGauntlet) {
       this.strength = 90;
       this.intelligence = 90;
 
-      this.toString = function() {
-        var output = [this.playerName,
-          ": a ",
-          this.skinColor,
-          " skinned ",
-          this.species,
-          " ",
-          this.class,
-          " with ",
-          this.health,
-          " health. ",
-          (this.class.magical) ? "Able to cast " : " Wielding a ",
-          this.power.toString(),
-          "!"
-        ].join("");
-        return output;
-      };
     };
 
     // OldGauntlet.Combatants.Player.prototype.setWeapon = function(newWeapon) {
@@ -110,6 +93,18 @@ var Gauntlet = (function(OldGauntlet) {
       this.skinColor = this.skinColors[randomSkin];
 
       this.allowedHouses = ["Ravenclaw", "Slytherin", "Gryffindor", "Hufflepuff"];
+      this.toString = function() {
+        var output = [this.playerName,
+          " is in ",
+          this.house,
+          " with a ",
+          this.patronus,
+          ", and has health of ",
+          this.health,
+          "!"
+        ].join("");
+        return output;
+      };
     };
     OldGauntlet.Combatants.Wizard.prototype = new OldGauntlet.Combatants.Player();
 

@@ -78,6 +78,7 @@ $(document).ready(function() {
           student.generateHouse();
         } else {
           student.house = new Gauntlet.Hogwarts[clicked]();
+          console.log("student", student);
         }
 
       }

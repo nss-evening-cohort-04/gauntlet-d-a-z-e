@@ -47,7 +47,7 @@ var Gauntlet = (function(OldGauntlet) {
       var random = Math.round(Math.random() * (this.allowedSpells.length - 1));
 
       // Get the string at the index
-      
+
       var randomClass = this.allowedSpells[random];
 
       // Composes the corresponding player class into the player object
@@ -96,20 +96,20 @@ var Gauntlet = (function(OldGauntlet) {
       this.allowedCreatures = ["Dobby", "Buckbeak", "Fawkes"];
       this.toString = function() {
         var output = [this.playerName,
-          " is in ",
+          "<br />",
           this.house,
-          " with a ",
+          "<br />",
           this.patronus,
-          ", and has health of ",
+          "<br />",
           this.health,
-          "!"
+          " Health"
         ].join("");
         return output;
       };
     };
     OldGauntlet.Combatants.Wizard.prototype = new OldGauntlet.Combatants.Player();
 
-    
+
     /*
       Define the base properties for a monster in a
       constructor function.
@@ -120,13 +120,13 @@ var Gauntlet = (function(OldGauntlet) {
       this.strength = this.strength + 30;
       this.toString = function() {
         var output = [this.playerName,
-          " is in ",
+          "<br />",
           this.house,
-          " with a ",
+          "<br />",
           this.spell,
-          ", and has health of ",
+          "<br />",
           this.health,
-          "!"
+          " Health"
         ].join("");
         return output;
       };
@@ -136,4 +136,3 @@ var Gauntlet = (function(OldGauntlet) {
 
     return OldGauntlet;
 })(Gauntlet || {});
-

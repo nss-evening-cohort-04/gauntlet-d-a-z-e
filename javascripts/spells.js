@@ -13,7 +13,7 @@ var Gauntlet = (function(OldGauntlet){
     this.damage = 0;
 
     this.toString = function() {
-      return " You cast " + this.name + " for " + this.damage + " damage";
+      return this.name;
     }
   };
 

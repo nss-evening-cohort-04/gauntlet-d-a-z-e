@@ -97,10 +97,10 @@ $("#battleImage").hide();
         } else {
           student.house = new Gauntlet.Hogwarts[clicked]();
           console.log("student", student);
+
         }
-
       }
-
+    e.preventDefault();
     });
 
   $("#userPatronus").click(function(e){
@@ -110,6 +110,8 @@ $("#battleImage").hide();
 
         student.patronus = new Gauntlet.Patroni[clicked]();
         console.log("patronus", student);
+        e.preventDefault();
+
     }
   });
   // $("#userSpell").click(function(e){
@@ -131,7 +133,7 @@ $("#battleImage").hide();
       battle++;
       let type = student.patronus;
       Gauntlet.runAttack(student, deathEater, type, battle);
-      
+
   });
   $("#castSpell").click(function(e){
     Gauntlet.generateImage();
@@ -139,7 +141,7 @@ $("#battleImage").hide();
     student.generateSpell();
     let type = student.spell;
     Gauntlet.runAttack(student, deathEater, type, battle);
-    
+
   });
   $("#getFriend").click(function(e){
     Gauntlet.generateImage();
@@ -147,7 +149,7 @@ $("#battleImage").hide();
     student.generateCreature();
     let type = student.creature;
     Gauntlet.runAttack(student, deathEater, type, battle);
-    
+
   });
   /*
     When the back button clicked, move back a view
